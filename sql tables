@@ -1,0 +1,109 @@
+# student table
+
+use student;
+CREATE TABLE student(
+student_rollno int,
+student_name varchar(10),
+course_name varchar (20),
+college_name varchar (30) 
+);
+
+INSERT INTO student VALUES
+(01,'Manasa','MCA','MITS'),
+(02,'manu','sfe','rwecr'),
+(03,'fdsfd','efwe','ewx'),
+(04,'eeeew','reer','rertew'),
+(05,'rteer','rete','yyty'),
+(06,'vtyt','ybuby','uuyu'),
+(07,'gvfd','tvryt','tyyds'),
+(08,'ytrt','unny','yutt'),
+(09,'rtrt','yhy','eweer'),
+(10,'crrg','ytyy','sadd');
+
+# book table
+
+USE books;
+CREATE TABLE  books (
+book_name VARCHAR(100),
+publishedyear INT,
+author VARCHAR(10)
+);
+INSERT INTO books(book_name, publishedyear, author) VALUES
+('java',1996,'james gosling'),
+('python',1991,'guido van rossum'),
+('c++',2000,'djshd'),
+('c',2000,'cdvss'),
+('sql',2001,'dssfs'),
+('ml',2005,'fddfd'),
+('genai',2022,'dfdxf'),
+('bigdata',2000,'fwxw'),
+('data engeerning',2000,'dfsfs'),
+('microsoftfabric',2000,'sdfsse');
+
+# orders table
+
+CREATE DATABASE orders;
+USE orders;
+CREATE TABLE orders(
+order_id int(4) primary key,
+name varchar(10),
+date int(12),
+payment int(15));
+
+INSERT INTO orders(order_id, name, year) VALUES
+(01,'iphone',15-09-2025,100000),
+(02,'laptop',12-08-2025,20000),
+(03, 'mobile',11-09-2025,30000),
+(04, 'dressing table',10-08-2025,2000),
+(05,'kingsizecot',20-07-2025,30000),
+(06,'dinneingtable',22-04-2025,10000),
+(07,'hairdryer',22-03-2025,2000),
+(08,'water bottle',21-02-2025,1000),
+(09,'shoes',09-01-2025,2000),
+(10,'hairoli',23-03-2025);
+
+# customer table
+
+CREATE DATABASE customer;
+USE customer;
+CREATE TABLE customer (
+customer_id int(10),
+first_name varchar(100),
+last_name varchar(200)
+);
+INSERT INTO customer(customer_id, first_name, last_name) VALUES
+(01,'mutra','manasa'),
+(02,'gowni','manasa'),
+(03,'aaa','bbb'),
+(04,'ccc','ddd'),
+(05,'eee','fff'),
+(06,'ggg','hhh'),
+(07,'iii','jjj'),
+(08,'ddd','sss'),
+(09,'rrr','www'),
+(10,'qqq','ttt');
+
+# products table
+
+CREATE DATABASE products;
+USE products;
+CREATE TABLE products (
+product_id int,
+name varchar(20),
+brand varchar(30)
+);
+INSERT INTO products (product_id, name, brand) VALUES
+(01,'laptop','electronics'),
+(02,'iphone','electronics'),
+(03,'mouse','electronics'),
+(04,'chair','furniture'),
+(05,'webcam','electronics'),
+(06,'cot','furniture'),
+(07,'dressing table','furniture'),
+(08,'fan','electronics'),
+(09,'keybroad','electronics'),
+(10,'walldoor','furniture');
+
+
+
+

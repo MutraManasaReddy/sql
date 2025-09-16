@@ -1,0 +1,128 @@
+# products table
+
+1.Show all products?  (all columns and rows)
+ans: SELECT * FROM products;
+
+2.Select only product names and brands? (show only two columns)
+
+ans: SELECT name, brand FROM products; 
+
+3.Find all products under the brand "electronics"? (rows filter: brand row display electronics)
+
+ans: SELECT * FROM products WHERE brand = 'electronics';
+
+4. Find all products where brand is 'electronics' or 'furniture'? (two rows in multiple values)
+ans: SELECT * FROM products WHERE brand IN ('electronics', 'furniture');
+
+5.Find products with product_id between 3 and 7? (product_id column b/w 3 and 7)
+ans: SELECT * FROM products WHERE product_id BETWEEN 3 AND 7;
+
+6.Order by product_id in Ascending? (product_id column small to big)
+ans: SELECT * FROM products ORDER BY product_id ASC;
+
+7.Order by product_id in Descending? (product_id column big to small)
+ans: SELECT * FROM products ORDER BY product_id DESC;
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+
+# customer table
+
+1.Show all customers? (all columns and rows)
+ans: SELECT * FROM customer;
+
+2.Select only first_name and last_name? (show only two columns)
+ans: SELECT first_name, last_name FROM customer;
+
+3. Find all customers with last_name = 'manasa'? (rows filter: last_name row display manasa)
+ans: SELECT * FROM customer WHERE last_name = 'manasa';
+
+4. Find all customers where last_name is 'manasa' or 'sss'? (two rows in multiple values)
+ans: SELECT * FROM customer WHERE last_name IN ('manasa', 'sss');
+
+5.Find customers with customer_id between 3 and 7? (customer_id column b/w 3 and 7)
+ans: SELECT * FROM customer WHERE customer_id BETWEEN 3 AND 7;
+
+6. Order by customer_id in Ascending? (customer_id column small to big)
+ans: SELECT * FROM customer ORDER BY customer_id ASC;
+
+7. Order by customer_id in Descending? (customer_id column big to small)
+ans: SELECT * FROM customer ORDER BY customer_id DESC;
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+# order table
+
+1. Show all orders? (all columns and rows)
+ans: SELECT * FROM orders;
+
+2.Select only name and payment? (show only two columns)
+ans: SELECT name, payment FROM orders;
+
+3.Find all orders where payment = 2000? (rows filter: payment = 2000)
+ans: SELECT * FROM orders WHERE payment = 2000;
+
+4. Find all orders where payment is 2000 or 1000? (multiple values)
+ans: SELECT * FROM orders WHERE payment IN (2000, 1000);
+
+5. Find orders with order_id between 3 and 7? (order_id column b/w 3 and 7)
+ans: SELECT * FROM orders WHERE order_id BETWEEN 3 AND 7;
+
+6.Order by order_id in Ascending? (order_id small → big)
+ans: SELECT * FROM orders ORDER BY order_id ASC;
+
+7.Order by order_id in Descending? (order_id big → small)
+ans: SELECT * FROM orders ORDER BY order_id DESC;
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+
+# books table
+
+1. Show all books? (all columns and rows)
+ans: SELECT * FROM books;
+
+2. Select only book_name and author? (show only two columns)
+ans: SELECT book_name, author FROM books;
+
+3. Find all books published in the year 2000? (rows filter: publishedyear = 2000)
+ans: SELECT * FROM books WHERE publishedyear = 2000;
+
+4.Find all books published in 2000 or 2005? (multiple values)
+ans: SELECT * FROM books WHERE publishedyear IN (2000, 2005);
+
+5. Find books where publishedyear between 1996 and 2001? (publishedyear column between 1996 and 2001)
+ans: SELECT * FROM books WHERE publishedyear BETWEEN 1996 AND 2001;
+
+6.Order by publishedyear in Ascending? (small → big)
+ans: SELECT * FROM books ORDER BY publishedyear ASC;
+
+7. Order by publishedyear in Descending? (big → small)
+ans: SELECT * FROM books ORDER BY publishedyear DESC;
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+# student table
+
+1. Show all students? (all columns and rows)
+ans: SELECT * FROM student;
+
+2. Select only student_name and course_name? (show only two columns)
+ans: SELECT student_name, course_name FROM student;
+
+3. Find all students in the course 'MCA'? (rows filter: course_name = 'MCA')
+ans: SELECT * FROM student WHERE course_name = 'MCA';
+
+4. Find all students in courses 'MCA' or 'sfe'? (multiple values)
+ans: SELECT * FROM student WHERE course_name IN ('MCA', 'sfe');
+
+5. Find students with student_rollno between 3 and 7? (student_rollno column between 3 and 7)
+ans: SELECT * FROM student WHERE student_rollno BETWEEN 3 AND 7;
+
+6. Order by student_rollno in Ascending? (small → big)
+ans: SELECT * FROM student ORDER BY student_rollno ASC;
+
+7. Order by student_rollno in Descending? (big → small)
+ans: SELECT * FROM student ORDER BY student_rollno DESC;
+
+--------------------------------------------------------------------------------------------------------------------------------------

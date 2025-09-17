@@ -1,0 +1,86 @@
+# student 
+
+Scenario 1: Columfilter with order by
+Scenario 2: Rowfilter with order by
+Scenario 3: Columnfilter + row filter with order by
+
+
+1. Show only student_name and course_name, ordered by student_name ascending.
+ans: SELECT student_name, course_name FROM student ORDER BY student_name ASC;
+
+2. Show all columns of students who belong to "MITS" college, ordered by student_rollno descending.
+ans: SELECT * FROM student WHERE college_name = 'MITS' ORDER BY student_rollno DESC;
+
+3. Show only student_name and college_name for students whose course_name = 'sfe', ordered by college_name descending.
+ans: SELECT student_name, college_name FROM student WHERE course_name = 'sfe' ORDER BY college_name DESC;
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+# books
+
+1. Show book_name and publishedyear, ordered by publishedyear ascending.
+ans: SELECT book_name, publishedyear FROM books ORDER BY publishedyear ASC;
+
+2. Show all details of books published in the year 2000, ordered by book_name ascending
+ans: SELECT * FROM books WHERE publishedyear = 2000 ORDER BY book_name ASC;
+
+3. Show only book_name and author for books published after 2000, ordered by author descending.
+ans: SELECT book_name, author FROM books WHERE publishedyear > 2000 ORDER BY author DESC;
+
+----------------------------------------------------------------------------------------------------------------------------
+
+# customer 
+
+1. Show only first_name and last_name, ordered by first_name ascending.
+ans:SELECT first_name, last_name FROM customer ORDER BY first_name ASC;
+
+2. Show only customer_id and last_name, ordered by last_name descending.
+ans: SELECT customer_id, last_name FROM customer ORDER BY last_name DESC;
+
+3. Show all customers whose last_name = 'manasa', ordered by customer_id.
+ans: SELECT * FROM customer WHERE last_name = 'manasa' ORDER BY customer_id ASC;
+
+4.Show all customers with customer_id > 5, ordered by last_name ascending.
+ans:SELECT * FROM customer WHERE customer_id > 5 ORDER BY last_name ASC;
+
+5.Show only first_name and last_name where customer_id <= 5, ordered by last_name ascending
+ans: SELECT first_name, last_name FROM customer WHERE customer_id <= 5 ORDER BY last_name ASC;
+
+6.Show only first_name where last_name = 'manasa', ordered by first_name descending.
+ans: SELECT first_name FROM customer WHERE last_name = 'manasa' ORDER BY first_name DESC;
+
+----------------------------------------------------------------------------------------------------------------------------
+
+# order 
+
+1. Show only name and payment, ordered by payment descending.
+ans: SELECT name, payment FROM orders ORDER BY payment DESC;
+
+2. Show all orders with payment > 10000, ordered by order_date ascending
+ans: SELECT * FROM orders WHERE payment > 10000 ORDER BY order_date ASC;
+
+3.Show only name and order_date for orders where payment <= 2000, ordered by name ascending.
+ans: SELECT name, order_date FROM orders WHERE payment <= 2000 ORDER BY name ASC;
+----------------------------------------------------------------------------------------------------------------------------
+
+# product
+
+1.Show only name and brand, ordered by name ascending.
+ans: SELECT name, brand FROM products ORDER BY name ASC;
+
+2. Show only product_id and name, ordered by product_id descending.
+ans: SELECT product_id, name FROM products ORDER BY product_id DESC;
+
+3. Show all products where brand = 'electronics', ordered by name ascending.
+ans: SELECT * FROM products WHERE brand = 'electronics' ORDER BY name ASC;
+
+4. Show all products where brand = 'furniture', ordered by product_id ascending.
+ans:SELECT * FROM products WHERE brand = 'furniture' ORDER BY product_id ASC;
+
+5. Show only name and brand for products where brand = 'furniture', ordered by name descending.
+ans: SELECT name, brand FROM products WHERE brand = 'furniture' ORDER BY name DESC;
+
+6.Show only name for products where brand = 'electronics', ordered by name descending.
+ans: SELECT name FROM products WHERE brand = 'electronics' ORDER BY name DESC;
+
+---------------------------------------------------------------------------------------------------------------------------

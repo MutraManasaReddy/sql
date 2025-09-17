@@ -1,0 +1,105 @@
+# and or scenarios
+
+# product 
+
+1. Show all products where brand = 'electronics' AND name LIKE 'l%'.
+ans: SELECT * FROM products WHERE brand = 'electronics' AND name LIKE 'l%';
+
+2. Show only product_id, name where brand = 'furniture' AND product_id > 5.
+ans: SELECT product_id, name FROM products WHERE brand = 'furniture' AND product_id > 5;
+
+3. Find products where brand = 'electronics' AND product_id BETWEEN 2 AND 5.
+ans: SELECT * FROM products WHERE brand = 'electronics' AND product_id BETWEEN 2 AND 5;
+
+4. Show all rows where product_id < 3 OR brand = 'furniture'.
+ans: SELECT * FROM products WHERE product_id < 3 OR brand = 'furniture';
+
+# group by scenarios
+
+1. Show how many products belong to each brand.
+ans: SELECT brand, COUNT(*) FROM products GROUP BY brand; 
+
+2. Count how many products per brand start with 'c'
+ans: SELECT brand, COUNT(*) FROM products WHERE name LIKE 'c%' GROUP BY brand;
+
+------------------------------------------------------------------------------------------------------------------------------
+# order
+
+1. Orders where payment > 10000 AND name = 'laptop
+ans: SELECT * FROM orders WHERE payment > 10000 AND name = 'laptop';
+
+2. Orders where payment < 5000 OR name = 'iphone'
+ans: SELECT * FROM orders WHERE payment < 5000 OR name = 'iphone';
+
+3. Total orders per payment amount
+ans: SELECT payment, COUNT(*)FROM orders GROUP BY payment;
+
+----------------------------------------------------------------------------------------------------------------------------
+
+# customer
+
+1. Customers where last_name = 'manasa' AND first_name = 'mutra'
+ans: SELECT * FROM customer WHERE last_name = 'manasa' AND first_name = 'mutra';
+
+2. Customers where last_name = 'manasa' OR last_name = 'bbb'
+ans: SELECT * FROM customer WHERE last_name = 'manasa' OR last_name = 'bbb';
+
+3. Count customers by last_name
+ans: SELECT last_name, COUNT(*) FROM customer GROUP BY last_name;
+
+4. Count customers grouped by first letter of first_name
+ans: SELECT LEFT(first_name,1) AS first_letter, COUNT(*) FROM customer GROUP BY LEFT(first_name,1);
+
+----------------------------------------------------------------------------------------------------------------------------
+
+# books
+
+1. Books published after 2000 AND author = 'dfdxf'
+ans: SELECT * FROM books WHERE publishedyear > 2000 AND author = 'dfdxf';
+
+2. Books published in 2000 OR 2001
+ans: SELECT * FROM books WHERE publishedyear = 2000 OR publishedyear = 2001;
+
+3. Count books per published year
+ans: SELECT publishedyear, COUNT(*) FROM books GROUP BY publishedyear;
+
+4. Group by author, count how many books each wrote
+ans: SELECT author, COUNT(*) FROM books GROUP BY author;
+
+----------------------------------------------------------------------------------------------------------------------------
+
+# student 
+
+1. Students whose course_name = 'MCA' AND college_name = 'MITS'
+ans: SELECT * FROM student WHERE course_name = 'MCA' AND college_name = 'MITS';
+
+2. Students from course_name = 'MCA' OR course_name = 'sfe'
+ans: SELECT * FROM student WHERE course_name = 'MCA' OR course_name = 'sfe';
+
+3. Students where (college_name = 'ewx' OR college_name = 'yyty')
+ans: SELECT * FROM student WHERE college_name = 'ewx' OR college_name = 'yyty';
+
+4. Count students in each college
+ans: SELECT college_name, COUNT(*)FROM student GROUP BY college_name;
+
+5. Group by course_name and count students
+ans: SELECT course_name, COUNT(*) FROM student GROUP BY course_name;
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

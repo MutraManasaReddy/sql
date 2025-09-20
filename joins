@@ -1,0 +1,33 @@
+# inner join
+
+select p.plant_no, p.plant_name, p.plant_bread, a.animal_name, a.animal_colour
+from plants.p
+inner join
+animals.a
+on p.plant_no = a.animal_no
+
+
+# left join
+
+select p.plant_no, p.plant_name, p.plant_bread, a.animal_name, a.animal_colour
+from plants.p
+left join
+animals.a
+on p.plant_no = a.animal_no
+
+
+# right join
+
+select p.plant_no, p.plant_name, p.plant_bread, a.animal_name, a.animal_colour
+from plants.p
+right join
+animals.a
+on p.plant_no = a.animal_no
+
+# full join
+
+select p.plant_no, p.plant_name, p.plant_bread, a.animal_name, a.animal_colour
+from plants.p
+full join 
+animals.a
+on p.plant_no = a.animal_no order by a.animal_name;

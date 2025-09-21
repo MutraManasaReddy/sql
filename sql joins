@@ -1,0 +1,50 @@
+
+use dataschema;
+create table dataschema.courses(
+course_id int primary key,
+course_name varchar(255)
+);
+insert into dataschema.courses(course_id, course_name)values
+(1, ' python'),
+(2, 'java'),
+(3, 'genai'),
+(4, 'fastapi');
+select * from dataschema.courses;
+
+create table dataschema.college(
+college_id int primary key,
+course_id int,
+college_name varchar(255),
+college_place varchar(256),
+foreign key(course_id)references courses(course_id)
+);
+insert into dataschema.college(college_id, college_name, college_place) values
+(1, 'mits', 'angallu'),
+(2, 'sgdc', 'mpl'),
+(3, 'svc', 'tpt'),
+(4, 'svu', 'atp');
+select * from dataschema.college;
+
+select course_id, course_name, college_name
+from dataschema.courses
+inner join
+dataschema.college
+on course_id = course_id;
+
+select course_id, course_name, college_name
+from dataschema.courses
+left join
+dataschema.college
+on course_id = course_id;
+
+select course_id, course_name, college_name
+from dataschema.courses
+right join
+dataschema.college
+on course_id = course_id;
+
+select course_id, course_name, college_name
+from dataschema.courses
+full join
+dataschema.college
+on course_id = course_id

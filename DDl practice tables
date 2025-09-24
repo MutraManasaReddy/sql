@@ -1,0 +1,156 @@
+1.  How do  you check foreign key constraint fails in MySQL?
+
+use dataschema;
+create table patient(
+patient_id int primary key,
+patient_name varchar(100),
+patient_diseases varchar(200)
+);
+
+insert into patient(patient_id, patient_name , patient_diseases) values
+(1, 'john', 'fever'); 
+
+select * from patient;
+
+create table kkhospital(
+kkh_id int primary key,
+patient_id int,
+kkh_place varchar(100),
+foreign key (patient_id) references patient(patient_id)
+);
+
+insert into kkhospital(kkh_id, patient_id, kkh_place) values
+(100, 1, 'singapore'),
+(200, 2, 'usa'),
+(300, 3, 'landon');
+
+
+
+Error Code: 1452. Cannot add or update a child row: a foreign key constraint fails (`dataschema`.`kkhospital`, CONSTRAINT `kkhospital_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`patient_id`))	0.015 sec (`dataschema`.`kkhospital`, CONSTRAINT `kkhospital_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`patient_id`))	0.015 sec
+
+
+2  how do you check primary key (not null + unique)?
+
+use dataschema;
+
+create table customer(
+customer_id int primary key,
+customer_name varchar(100) not null,
+city varchar(150),
+phone_no int unique);
+
+insert into customer(customer_id, customer_name, city, phone_no) values
+(1, 'john', 'bangalore', '999999'),
+(1, 'john', 'bangalore', '999998');
+
+error: 0	24	15:48:37	insert into customer(customer_id, customer_name, city, phone_no) values
+ (1, 'john', 'bangalore', '999999'),
+ (1, 'john', 'bangalore', '999998')	Error Code: 1062. Duplicate entry '1' for key 'customer.PRIMARY'	0.000 sec
+
+
+3. how do you check unique value?
+
+
+use dataschema;
+
+create table customeres(
+customer_ids int primary key,
+customer_names varchar(100) not null,
+cityes varchar(150),
+phone_nos int unique);
+
+insert into customeres(customer_ids, customer_names, cityes, phone_nos) values
+(1, 'john', 'bangalore', '999999'),
+(1, 'john', 'bangalore', '999999');
+
+
+error: 0	30	16:08:28	insert into customeres(customer_ids, customer_names, cityes, phone_nos) values
+ (1, 'john', 'bangalore', '999999'),
+ (1, 'john', 'bangalore', '999999')	Error Code: 1062. Duplicate entry '1' for key 'customeres.PRIMARY'	0.000 sec
+
+
+4.how do you check insert the null value in not null ?
+use dataschema;
+
+create table customeres(
+customer_ids int primary key,
+customer_names varchar(100) not null,
+cityes varchar(150),
+phone_nos int unique);
+
+insert into customeres(customer_ids, customer_names, cityes, phone_nos) values
+(1, 'john', 'bangalore', '999999'),
+(2, 'john', 'bangalore', '999998'),
+(3, null, 'bangalore', 999997);
+
+error: 0	31	16:14:30	insert into customeres(customer_ids, customer_names, cityes, phone_nos) values
+ (1, 'john', 'bangalore', '999999'),
+ (2, 'john', 'bangalore', '999998'),
+ (3, null, 'bangalore', 999997)	Error Code: 1048. Column 'customer_names' cannot be null	0.016 sec
+
+5.  how do you check unique value should be including null?
+
+use dataschema;
+
+create table customeres(
+customer_ids int primary key,
+customer_names varchar(100) not null,
+cityes varchar(150),
+phone_nos int unique);
+
+insert into customeres(customer_ids, customer_names, cityes, phone_nos) values
+(1, 'john', 'bangalore', '999999'),
+(2, 'john', 'bangalore', '999998'),
+(3, 'dhruva', 'bangalore', 999997),
+(4, 'siries', 'hyd', null);
+
+error:  3	32	16:19:05	insert into customeres(customer_ids, customer_names, cityes, phone_nos) values
+ (1, 'john', 'bangalore', '999999'),
+ (2, 'john', 'bangalore', '999998'),
+ (3, 'dhruva', 'bangalore', 999997),
+ (4, 'siries', 'hyd', null)	4 row(s) affected
+ Records: 4  Duplicates: 0  Warnings: 0	0.016 sec
+
+
+6.how do you check the  many times insert the  null value?
+
+use dataschema;
+
+create table customeres(
+customer_ids int primary key,
+customer_names varchar(100) not null,
+cityes varchar(150),
+phone_nos int unique);
+
+insert into customeres(customer_ids, customer_names, cityes, phone_nos) values
+(1, 'john', 'bangalore', '999999'),
+(2, 'john', 'bangalore', '999998'),
+(3, 'dhruva', 'bangalore', 999997),
+(4, 'siries', 'hyd', null),
+(5,' mira', 'blr', null);
+
+error: 0	33	16:22:49	insert into customeres(customer_ids, customer_names, cityes, phone_nos) values
+ (1, 'john', 'bangalore', '999999'),
+ (2, 'john', 'bangalore', '999998'),
+ (3, 'dhruva', 'bangalore', 999997),
+ (4, 'siries', 'hyd', null),
+ (5,' mira', 'blr', null)	Error Code: 1062. Duplicate entry '1' for key 'customeres.PRIMARY'	0.000 sec
+
+7. how do you check insert the null value in primary key?
+
+use dataschema;
+
+create table customer1(
+customer_id int primary key,
+customer_name varchar(100),
+city varchar(150),
+phone_no int unique);
+
+insert into customer1(customer_id, customer_name, city, phone_no) values
+(null , 'john', 'blr', '8888888');
+
+error: 0	36	16:31:42	insert into customer1(customer_id, customer_name, city, phone_no) values
+ (null , 'john', 'blr', '8888888')	Error Code: 1048. Column 'customer_id' cannot be null	0.000 sec
+
+
+

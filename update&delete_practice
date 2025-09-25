@@ -1,0 +1,257 @@
+1. how do you update the single row?
+
+use dataschema;
+
+create table students(
+student_id int primary key,
+student_name varchar(255),
+school_name varchar(244),
+student_class int
+);
+
+insert into students(student_id, student_name, school_name, student_class) values
+(1, 'jhon', 'ntuc', 10),
+(2, 'mira', 'ntu', 9),
+(3, 'chinku', 'zphs', 8);
+
+
+select * from students;
+update students set student_class = 7  where student_id = 3;
+
+output:
+
+1	jhon	ntuc	10
+2	mira	ntu	9
+3	chinku	zphs	7
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2.  how do you update the multiple rows?
+
+use dataschema;
+
+create table students1(
+student_id int primary key,
+student_name varchar(255),
+school_name varchar(244),
+student_class int,
+student_place varchar(266)
+);
+
+insert into students1(student_id, student_name, school_name, student_class, student_place) values
+(1, 'jhon', 'ntuc', 10, 'landon'),
+(2, 'mira', 'ntu', 9, 'landon'),
+(3, 'chinku', 'zphs', 8, 'canada');
+
+select * from students1;
+
+update students1 set student_class = 7 where student_place = 'landon';
+
+ans:   1	jhon	ntuc	7	landon
+       2	mira	ntu	7	landon
+       3	chinku	zphs	8	canada
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3. update the students2 set student_ class =5 for all students2? (all rows , single coloum)
+
+use dataschema;
+
+create table students2(
+student_id int primary key,
+student_name varchar(255),
+school_name varchar(244),
+student_class int,
+student_place varchar(266)
+);
+
+insert into students2(student_id, student_name, school_name, student_class, student_place) values
+(1, 'jhon', 'ntuc', 10, 'landon'),
+(2, 'mira', 'ntu', 9, 'landon'),
+(3, 'chinku', 'zphs', 8, 'canada'),
+(4, 'chinnu', 'modelschool', 7, 'ap');
+
+select * from students2;
+
+update students2 set student_class = 5;
+
+output:
+
+1	jhon	ntuc	5	landon
+2	mira	ntu	5	landon
+3	chinku	zphs	5	canada
+4	chinnu	modelschool	5	ap
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+4. update the multiple columns, multiple rows
+
+use dataschema;
+
+
+create table students3(
+student_id int primary key,
+student_name varchar(255),
+school_name varchar(244),
+student_class int,
+student_place varchar(266)
+);
+
+
+insert into students3(student_id, student_name, school_name, student_class, student_place) values
+(1, 'jhon', 'ntuc', 10, 'landon'),
+(2, 'mira', 'ntu', 9, 'landon'),
+(3, 'chinku', 'zphs', 8, 'canada'),
+(4, 'chinnu', 'modelschool', 7, 'ap');
+
+select * from students3;
+
+
+update students3 set student_class= 6 , student_name ='chinnu' where student_place ='landon';
+
+output:
+
+1	chinnu	ntuc	6	landon
+2	chinnu	ntu	6	landon
+3	chinku	zphs	8	canada
+4	chinnu	modelschool	7	ap
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+5.   how to update the current table name to new table name?
+
+use dataschema;
+
+alter table student  rename to student5;
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+6. how to delete the table name?
+drop table dataschema;
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+7. i want to delete the  single row?
+
+use dataschema;
+
+create table product(
+product_id int primary key,
+product_name varchar(255),
+product_price int
+);
+
+insert into product(product_id, product_name, product_price) values
+(1, 'laptop', 100000),
+(2, 'iphone', 500000),
+(3, 'kingsizecot',30000),
+(4, 'queensizecot',25000);
+
+select * from product;
+
+delete from product where product_name = 'laptop';
+
+output:
+
+2	iphone	500000
+3	kingsizecot	30000
+4	queensizecot	25000
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+8. how to delete the multiple rows 
+
+use dataschema;
+
+
+create table product1(
+product_id int primary key,
+product_name varchar(255),
+product_price int
+);
+
+insert into product1(product_id, product_name, product_price) values
+(1, 'laptop', 100000),
+(2, 'iphone', 500000),
+(3, 'kingsizecot',30000),
+(4, 'queensizecot',25000),
+(5, 'iphone', 400000);
+
+select * from product1;
+
+delete from product1 where product_name = 'iphone';
+
+output:
+
+1	laptop	100000
+3	kingsizecot	30000
+4	queensizecot	25000
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+9. how do you delete the primary table?
+
+use dataschema;
+
+create table customer3(
+customer_id int primary key,
+customer_name varchar(255)
+);
+
+insert into customer3(customer_id, customer_name) values
+(1, 'jhon'),
+(2, 'mira'),
+(3, 'missamma');
+
+select * from customer3;
+
+create table order3(
+order_id int primary key,
+customer_id int,
+order_name varchar(234),
+foreign key (customer_id) references customer3(customer_id)
+);
+
+insert into order3(order_id, customer_id, order_name) values
+(10, 1, 'pizza'),
+(20, 2 , 'dosa'),
+(30, 3, 'vegpickel');
+
+select * from order3;
+
+drop table customer3;
+
+output:
+
+0	79	17:45:10	drop table customer3	Error Code: 3730. Cannot drop table 'customer3' referenced by a foreign key constraint 'order3_ibfk_1' on table 'order3'.	0.000 sec
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+10. how do you the delete the forenign key table?
+
+use dataschema;
+
+create table customer3(
+customer_id int primary key,
+customer_name varchar(255)
+);
+
+insert into customer3(customer_id, customer_name) values
+(1, 'jhon'),
+(2, 'mira'),
+(3, 'missamma');
+
+select * from customer3;
+
+create table order3(
+order_id int primary key,
+customer_id int,
+order_name varchar(234),
+foreign key (customer_id) references customer3(customer_id)
+);
+
+insert into order3(order_id, customer_id, order_name) values
+(10, 1, 'pizza'),
+(20, 2 , 'dosa'),
+(30, 3, 'vegpickel');
+
+select * from order3;
+
+drop table order3;
+
+output:
+
+3	80	17:47:06	drop table order3	0 row(s) affected	0.016 sec
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
